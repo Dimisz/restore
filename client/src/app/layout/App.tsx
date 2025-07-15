@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import type { Product } from "../models/product";
 
 function App() {
-  const [products, setProducts] = useState<{name: string, price: number}[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     fetch('https://localhost:5001/api/products')
@@ -10,9 +11,6 @@ function App() {
       .catch(e => console.log(`Error fetching data: ${e}`))
   }, []);
 
-  const addProduct = () => {
-    setProducts(prevState => [...prevState, {name: `product${prevState.length+1}`, price: 100.00*(prevState.length+1)}])
-  }
 
   return (
     <div>
@@ -22,7 +20,6 @@ function App() {
           <li key={item.name}>{item.name}: ${item.price}</li>)
         }
       </ul>
-      <button onClick={addProduct}>Add Product</button>
     </div>
   )
 }
