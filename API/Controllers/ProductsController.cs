@@ -3,7 +3,7 @@ using API.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SQLitePCL;
+
 
 namespace API.Controllers
 {
@@ -18,8 +18,8 @@ namespace API.Controllers
             return await context.Products.ToListAsync();
         }
 
-        [HttpGet("{id}")] // api/products/2
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        [HttpGet("{id}")] // api/products/guid
+        public async Task<ActionResult<Product>> GetProduct(Guid id)
         {
             var product = await context.Products.FindAsync(id);
             if (product == null) return NotFound();

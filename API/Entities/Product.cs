@@ -1,10 +1,13 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace API.Entities;
 
+[Table("products")]
 public class Product
 {
   // by convention will be used by EntityFramework as a PK 
   // because it's called 'Id'
-  public int Id { get; set; }
+  public Guid Id { get; set; }
   public required string Name { get; set; }
   public required string Description { get; set; }
   // use long, not decimal - due to Stripe API specifics
