@@ -12,6 +12,7 @@ builder.Services.AddDbContext<StoreContext>(opt =>
   // config string in appsettings.Development.json
   opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddCors();
 
 
 var app = builder.Build();

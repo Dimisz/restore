@@ -38,7 +38,12 @@ export default function NavBar({darkMode, toggleTheme}: NavBarProps){
           alignItems: 'center'
         }}>
         <Box>
-          <Typography component={NavLink} sx={navStyles} to="/" variant="h6">RESTORE</Typography>
+          <Typography 
+            component={NavLink} 
+            sx={navStyles}
+            to="/" 
+            variant="h6"
+          >RESTORE</Typography>
           <IconButton onClick={toggleTheme}>
             {darkMode ? <DarkMode /> : <LightMode sx={{color: "yellow"}}/>}
           </IconButton>
